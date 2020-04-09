@@ -14,6 +14,15 @@
 		E0375179243F387D00A66075 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0375178243F387D00A66075 /* CategoryViewModel.swift */; };
 		E037517A243F3A6000A66075 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0375176243F34C700A66075 /* CategoryCollectionViewCell.swift */; };
 		E037517D243F3BC700A66075 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E037517C243F3BC700A66075 /* CategoryViewController.swift */; };
+		E03751B9243F984000A66075 /* ProductTaxEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03751B1243F984000A66075 /* ProductTaxEntity+CoreDataClass.swift */; };
+		E03751BA243F984000A66075 /* ProductTaxEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03751B2243F984000A66075 /* ProductTaxEntity+CoreDataProperties.swift */; };
+		E03751BB243F984000A66075 /* CategoryEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03751B3243F984000A66075 /* CategoryEntity+CoreDataClass.swift */; };
+		E03751BC243F984000A66075 /* CategoryEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03751B4243F984000A66075 /* CategoryEntity+CoreDataProperties.swift */; };
+		E03751BD243F984000A66075 /* ProductEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03751B5243F984000A66075 /* ProductEntity+CoreDataClass.swift */; };
+		E03751BE243F984000A66075 /* ProductEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03751B6243F984000A66075 /* ProductEntity+CoreDataProperties.swift */; };
+		E03751BF243F984000A66075 /* ProductVarientEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03751B7243F984000A66075 /* ProductVarientEntity+CoreDataClass.swift */; };
+		E03751C0243F984000A66075 /* ProductVarientEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03751B8243F984000A66075 /* ProductVarientEntity+CoreDataProperties.swift */; };
+		E03751C4243FB6D500A66075 /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03751C3243FB6D500A66075 /* DateFormatterExtension.swift */; };
 		E072676A243E724300F34474 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0726769243E724300F34474 /* AppDelegate.swift */; };
 		E072676C243E724300F34474 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072676B243E724300F34474 /* SceneDelegate.swift */; };
 		E0726771243E724300F34474 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E072676F243E724300F34474 /* Main.storyboard */; };
@@ -50,6 +59,15 @@
 		E0375176243F34C700A66075 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		E0375178243F387D00A66075 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		E037517C243F3BC700A66075 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		E03751B1243F984000A66075 /* ProductTaxEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductTaxEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E03751B2243F984000A66075 /* ProductTaxEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductTaxEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E03751B3243F984000A66075 /* CategoryEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E03751B4243F984000A66075 /* CategoryEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E03751B5243F984000A66075 /* ProductEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E03751B6243F984000A66075 /* ProductEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E03751B7243F984000A66075 /* ProductVarientEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductVarientEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E03751B8243F984000A66075 /* ProductVarientEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductVarientEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E03751C3243FB6D500A66075 /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
 		E0726766243E724300F34474 /* E-Commerce SAT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-Commerce SAT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0726769243E724300F34474 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E072676B243E724300F34474 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,8 +123,24 @@
 			children = (
 				E0375172243F2A1C00A66075 /* UIColorExtension.swift */,
 				E0375174243F2DA500A66075 /* UICollectionViewExtension.swift */,
+				E03751C3243FB6D500A66075 /* DateFormatterExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		E0375190243F964C00A66075 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				E03751B1243F984000A66075 /* ProductTaxEntity+CoreDataClass.swift */,
+				E03751B2243F984000A66075 /* ProductTaxEntity+CoreDataProperties.swift */,
+				E03751B3243F984000A66075 /* CategoryEntity+CoreDataClass.swift */,
+				E03751B4243F984000A66075 /* CategoryEntity+CoreDataProperties.swift */,
+				E03751B5243F984000A66075 /* ProductEntity+CoreDataClass.swift */,
+				E03751B6243F984000A66075 /* ProductEntity+CoreDataProperties.swift */,
+				E03751B7243F984000A66075 /* ProductVarientEntity+CoreDataClass.swift */,
+				E03751B8243F984000A66075 /* ProductVarientEntity+CoreDataProperties.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		E072675D243E724300F34474 = {
@@ -171,6 +205,7 @@
 		E072679C243E748800F34474 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E0375190243F964C00A66075 /* CoreData */,
 				E037516C243F23C100A66075 /* ProductInfo.swift */,
 			);
 			path = Model;
@@ -341,14 +376,23 @@
 			files = (
 				E0375170243F29E000A66075 /* Constant.swift in Sources */,
 				E0726774243E724300F34474 /* E_Commerce_SAT.xcdatamodeld in Sources */,
+				E03751C4243FB6D500A66075 /* DateFormatterExtension.swift in Sources */,
 				E0375173243F2A1C00A66075 /* UIColorExtension.swift in Sources */,
+				E03751BC243F984000A66075 /* CategoryEntity+CoreDataProperties.swift in Sources */,
 				E0375175243F2DA500A66075 /* UICollectionViewExtension.swift in Sources */,
+				E03751BA243F984000A66075 /* ProductTaxEntity+CoreDataProperties.swift in Sources */,
 				E07267A2243E754B00F34474 /* NetworkManager.swift in Sources */,
 				E0375179243F387D00A66075 /* CategoryViewModel.swift in Sources */,
+				E03751BF243F984000A66075 /* ProductVarientEntity+CoreDataClass.swift in Sources */,
+				E03751B9243F984000A66075 /* ProductTaxEntity+CoreDataClass.swift in Sources */,
 				E037516D243F23C100A66075 /* ProductInfo.swift in Sources */,
+				E03751BD243F984000A66075 /* ProductEntity+CoreDataClass.swift in Sources */,
+				E03751BE243F984000A66075 /* ProductEntity+CoreDataProperties.swift in Sources */,
 				E037517A243F3A6000A66075 /* CategoryCollectionViewCell.swift in Sources */,
+				E03751C0243F984000A66075 /* ProductVarientEntity+CoreDataProperties.swift in Sources */,
 				E072676A243E724300F34474 /* AppDelegate.swift in Sources */,
 				E037517D243F3BC700A66075 /* CategoryViewController.swift in Sources */,
+				E03751BB243F984000A66075 /* CategoryEntity+CoreDataClass.swift in Sources */,
 				E072676C243E724300F34474 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

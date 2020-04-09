@@ -22,19 +22,19 @@ struct Category: Codable {
     struct Product: Codable {
         let id: Int
         let name: String
-        let dateAdded: String
+        let dateAdded: Date?
         
-        /* let variants: [Variant]
-        let tax: Tax?
+        let variants: [Variant]
+        // let tax: Tax?
         
         struct Variant: Codable {
             let id: Int
             let color: String
-            let size: Int
+            let size: Int?
             let price: Int
         }
         
-        struct Tax: Codable {
+        /* struct Tax: Codable {
                let name: String
                let value: Double
            } */

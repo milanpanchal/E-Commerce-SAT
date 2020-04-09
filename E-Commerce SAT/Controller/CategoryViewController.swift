@@ -12,8 +12,9 @@ class CategoryViewController: UIViewController {
 
     // MARK: - Properties
     fileprivate let reuseIdentifier = "CategoryCollectionViewCell"
-    fileprivate let sectionInsets = UIEdgeInsets(top: 20.0, left: 15.0, bottom: 20.0, right: 15.0)
-    fileprivate var itemsPerRow: CGFloat = (UIDevice.current.userInterfaceIdiom == .pad) ? 4 : 2
+    fileprivate let sectionInsets = UIEdgeInsets(top: 20.0, left: 12.0, bottom: 10.0, right: 12.0)
+    fileprivate var itemsPerRow: CGFloat = (UIDevice.current.userInterfaceIdiom == .pad) ? 4 : 1
+    fileprivate let maxHeightForCell:CGFloat = 150
     
     lazy fileprivate var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -44,6 +45,7 @@ class CategoryViewController: UIViewController {
         
         self.navigationItem.title = NavigationBarTitle.selectCategory
         self.apiCallToFetchAllCategoryList()
+        
     }
 
     // MARK: - User defined methods
@@ -55,6 +57,16 @@ class CategoryViewController: UIViewController {
             self?.categoryVMList = productInfo.categories.map({ return CategoryViewModel(category: $0)})
             
             DispatchQueue.main.async {
+
+                // TODO: 
+                CategoryEntity.deleteAllData()
+                CategoryEntity.insetAll(categoryList: productInfo.categories)
+                
+                if let fetchData = CategoryEntity.fetch() {
+                    _ = fetchData.map { (obj) -> Void in
+                        print(">>>>> CategoryName " + (obj.name ?? "") + "Product Names: \(obj.products?.first?.dateAdded)" + "Count: \(obj.products?.count)")
+                    }
+                }
                 
                 // Hide refresh control if refreshing
                 if let isRefreshing = self?.refreshControl.isRefreshing, isRefreshing == true {
@@ -105,7 +117,7 @@ extension CategoryViewController : UICollectionViewDelegateFlowLayout {
         let availableWidth = collectionView.frame.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow
         
-        return CGSize(width: widthPerItem, height: widthPerItem)
+        return CGSize(width: widthPerItem, height: min(widthPerItem, maxHeightForCell))
     }
     
     func collectionView(_ collectionView: UICollectionView,

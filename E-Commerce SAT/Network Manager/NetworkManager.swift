@@ -37,10 +37,18 @@ final class NetworkManager: NSObject {
 
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase // convert date_added to dateAdded
+            decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
 
-            if let data = data, let productInfo = try? decoder.decode(ProductInfo.self, from: data) {
-                print(productInfo)
-                completionHandler(productInfo)
+            do {
+                
+                if let data = data {
+                    let productInfo = try decoder.decode(ProductInfo.self, from: data)
+                    print(productInfo)
+                    completionHandler(productInfo)
+                }
+                
+            } catch let error {
+                print(error)
             }
         })
         task.resume()
