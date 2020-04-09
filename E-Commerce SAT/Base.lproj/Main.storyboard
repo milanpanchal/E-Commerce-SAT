@@ -63,9 +63,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="VUX-Gx-7IC"/>
+                    <navigationItem key="navigationItem" id="VUX-Gx-7IC">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="list.bullet" catalog="system" id="beP-nu-z3u">
+                            <connections>
+                                <action selector="didTapOnListGridBtn:" destination="BYZ-38-t0r" id="Tea-7t-YUV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="categoryCollectionView" destination="OmX-Zr-bIg" id="vCC-Cf-L3y"/>
+                        <outlet property="listGridBtn" destination="beP-nu-z3u" id="80q-cC-lIQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -91,4 +98,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="120.53571428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="list.bullet" catalog="system" width="64" height="44"/>
+    </resources>
 </document>

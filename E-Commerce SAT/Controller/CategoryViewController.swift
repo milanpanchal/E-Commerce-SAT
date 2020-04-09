@@ -13,7 +13,7 @@ class CategoryViewController: UIViewController {
     // MARK: - Properties
     fileprivate let reuseIdentifier = "CategoryCollectionViewCell"
     fileprivate let sectionInsets = UIEdgeInsets(top: 20.0, left: 12.0, bottom: 10.0, right: 12.0)
-    fileprivate var itemsPerRow: CGFloat = (UIDevice.current.userInterfaceIdiom == .pad) ? 4 : 1
+    fileprivate var itemsPerRow: CGFloat = 1
     fileprivate let maxHeightForCell:CGFloat = 150
     
     lazy fileprivate var refreshControl: UIRefreshControl = {
@@ -22,7 +22,7 @@ class CategoryViewController: UIViewController {
         refreshControl.tintColor = UIColor.themeColorRed
         return refreshControl
     }()
-
+    
     @IBOutlet weak private var categoryCollectionView: UICollectionView! {
         didSet {
             categoryCollectionView.backgroundColor = UIColor.white
@@ -34,6 +34,8 @@ class CategoryViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var listGridBtn: UIBarButtonItem!
+
 
     private var categoryVMList:[CategoryViewModel] = []
     
@@ -42,8 +44,10 @@ class CategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+            
         self.navigationItem.title = NavigationBarTitle.selectCategory
+        self.toggleListGridImage()
+        
         self.apiCallToFetchAllCategoryList()
         
     }
@@ -84,6 +88,25 @@ class CategoryViewController: UIViewController {
         self.apiCallToFetchAllCategoryList()
     }
 
+    @IBAction func didTapOnListGridBtn(_ sender: UIBarButtonItem) {
+        
+        itemsPerRow = (itemsPerRow == 1) ? 2 : 1
+
+        toggleListGridImage()
+        categoryCollectionView.reloadData()
+    }
+    
+    fileprivate func toggleListGridImage() {
+        
+        if itemsPerRow == 1 {
+            listGridBtn.image = UIImage(systemName: "circle.grid.3x3")
+        } else {
+            listGridBtn.image = UIImage(systemName: "list.bullet")
+        }
+        
+    }
+    
+    
 }
 
 
