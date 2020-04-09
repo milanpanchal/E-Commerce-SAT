@@ -8,9 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		E037516D243F23C100A66075 /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E037516C243F23C100A66075 /* ProductInfo.swift */; };
+		E0375170243F29E000A66075 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E037516F243F29E000A66075 /* Constant.swift */; };
+		E0375173243F2A1C00A66075 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0375172243F2A1C00A66075 /* UIColorExtension.swift */; };
+		E0375175243F2DA500A66075 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0375174243F2DA500A66075 /* UICollectionViewExtension.swift */; };
+		E0375179243F387D00A66075 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0375178243F387D00A66075 /* CategoryViewModel.swift */; };
+		E037517A243F3A6000A66075 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0375176243F34C700A66075 /* CategoryCollectionViewCell.swift */; };
+		E037517D243F3BC700A66075 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E037517C243F3BC700A66075 /* CategoryViewController.swift */; };
 		E072676A243E724300F34474 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0726769243E724300F34474 /* AppDelegate.swift */; };
 		E072676C243E724300F34474 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072676B243E724300F34474 /* SceneDelegate.swift */; };
-		E072676E243E724300F34474 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072676D243E724300F34474 /* ViewController.swift */; };
 		E0726771243E724300F34474 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E072676F243E724300F34474 /* Main.storyboard */; };
 		E0726774243E724300F34474 /* E_Commerce_SAT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E0726772243E724300F34474 /* E_Commerce_SAT.xcdatamodeld */; };
 		E0726776243E724C00F34474 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0726775243E724C00F34474 /* Assets.xcassets */; };
@@ -39,10 +44,15 @@
 
 /* Begin PBXFileReference section */
 		E037516C243F23C100A66075 /* ProductInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
+		E037516F243F29E000A66075 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		E0375172243F2A1C00A66075 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		E0375174243F2DA500A66075 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
+		E0375176243F34C700A66075 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		E0375178243F387D00A66075 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		E037517C243F3BC700A66075 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		E0726766243E724300F34474 /* E-Commerce SAT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-Commerce SAT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0726769243E724300F34474 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E072676B243E724300F34474 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E072676D243E724300F34474 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E0726770243E724300F34474 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E0726773243E724300F34474 /* E_Commerce_SAT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = E_Commerce_SAT.xcdatamodel; sourceTree = "<group>"; };
 		E0726775243E724C00F34474 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,6 +92,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E037516E243F29C000A66075 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E037516F243F29E000A66075 /* Constant.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		E0375171243F2A0E00A66075 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E0375172243F2A1C00A66075 /* UIColorExtension.swift */,
+				E0375174243F2DA500A66075 /* UICollectionViewExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		E072675D243E724300F34474 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +132,8 @@
 		E0726768243E724300F34474 /* E-Commerce SAT */ = {
 			isa = PBXGroup;
 			children = (
+				E0375171243F2A0E00A66075 /* Extension */,
+				E037516E243F29C000A66075 /* Utilities */,
 				E072679C243E748800F34474 /* Model */,
 				E072679D243E749200F34474 /* View */,
 				E072679E243E749900F34474 /* ViewModel */,
@@ -150,6 +179,7 @@
 		E072679D243E749200F34474 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E0375176243F34C700A66075 /* CategoryCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -157,6 +187,7 @@
 		E072679E243E749900F34474 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E0375178243F387D00A66075 /* CategoryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -172,7 +203,7 @@
 		E07267A0243E74F400F34474 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E072676D243E724300F34474 /* ViewController.swift */,
+				E037517C243F3BC700A66075 /* CategoryViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -308,11 +339,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E072676E243E724300F34474 /* ViewController.swift in Sources */,
+				E0375170243F29E000A66075 /* Constant.swift in Sources */,
 				E0726774243E724300F34474 /* E_Commerce_SAT.xcdatamodeld in Sources */,
+				E0375173243F2A1C00A66075 /* UIColorExtension.swift in Sources */,
+				E0375175243F2DA500A66075 /* UICollectionViewExtension.swift in Sources */,
 				E07267A2243E754B00F34474 /* NetworkManager.swift in Sources */,
+				E0375179243F387D00A66075 /* CategoryViewModel.swift in Sources */,
 				E037516D243F23C100A66075 /* ProductInfo.swift in Sources */,
+				E037517A243F3A6000A66075 /* CategoryCollectionViewCell.swift in Sources */,
 				E072676A243E724300F34474 /* AppDelegate.swift in Sources */,
+				E037517D243F3BC700A66075 /* CategoryViewController.swift in Sources */,
 				E072676C243E724300F34474 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct NavigationBarTitle {
+    
+    static let selectCategory = "Select Category"
+
+}

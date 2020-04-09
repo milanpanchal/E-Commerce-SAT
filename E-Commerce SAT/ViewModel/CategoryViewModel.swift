@@ -1,5 +1,5 @@
 //
-//  ProductInfoViewModel.swift
+//  CategoryViewModel.swift
 //  E-Commerce SAT
 //
 //  Created by Milan Panchal on 09/04/20.
@@ -8,16 +8,16 @@
 
 import Foundation
 
-class CategoryViewModel: NSObject {
+struct CategoryViewModel {
 
-    private let productInfo: ProductInfo
+    private let category: Category
     
-    public init(productInfo: ProductInfo) {
-      self.productInfo = productInfo
+    public init(category: Category) {
+      self.category = category
     }
 
     public var name: String {
-        return productInfo
+        return category.name
     }
 
 }
