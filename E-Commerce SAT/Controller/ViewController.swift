@@ -10,11 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    private var productInfo: ProductInfo?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        NetworkManager.shared.fetchProductList() { [weak self] (productInfo) in
+            self?.productInfo = productInfo
+        }
     }
-
 
 }
 

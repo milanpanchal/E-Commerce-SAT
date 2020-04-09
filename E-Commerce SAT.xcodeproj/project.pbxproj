@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E037516D243F23C100A66075 /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E037516C243F23C100A66075 /* ProductInfo.swift */; };
 		E072676A243E724300F34474 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0726769243E724300F34474 /* AppDelegate.swift */; };
 		E072676C243E724300F34474 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072676B243E724300F34474 /* SceneDelegate.swift */; };
 		E072676E243E724300F34474 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072676D243E724300F34474 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 		E0726779243E724C00F34474 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0726777243E724C00F34474 /* LaunchScreen.storyboard */; };
 		E0726784243E724C00F34474 /* E_Commerce_SATTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0726783243E724C00F34474 /* E_Commerce_SATTests.swift */; };
 		E072678F243E724C00F34474 /* E_Commerce_SATUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072678E243E724C00F34474 /* E_Commerce_SATUITests.swift */; };
+		E07267A2243E754B00F34474 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07267A1243E754B00F34474 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E037516C243F23C100A66075 /* ProductInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
 		E0726766243E724300F34474 /* E-Commerce SAT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-Commerce SAT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0726769243E724300F34474 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E072676B243E724300F34474 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +54,7 @@
 		E072678A243E724C00F34474 /* E-Commerce SATUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "E-Commerce SATUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E072678E243E724C00F34474 /* E_Commerce_SATUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = E_Commerce_SATUITests.swift; sourceTree = "<group>"; };
 		E0726790243E724C00F34474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E07267A1243E754B00F34474 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +105,13 @@
 		E0726768243E724300F34474 /* E-Commerce SAT */ = {
 			isa = PBXGroup;
 			children = (
+				E072679C243E748800F34474 /* Model */,
+				E072679D243E749200F34474 /* View */,
+				E072679E243E749900F34474 /* ViewModel */,
+				E07267A0243E74F400F34474 /* Controller */,
+				E072679F243E74CD00F34474 /* Network Manager */,
 				E0726769243E724300F34474 /* AppDelegate.swift */,
 				E072676B243E724300F34474 /* SceneDelegate.swift */,
-				E072676D243E724300F34474 /* ViewController.swift */,
 				E072676F243E724300F34474 /* Main.storyboard */,
 				E0726775243E724C00F34474 /* Assets.xcassets */,
 				E0726777243E724C00F34474 /* LaunchScreen.storyboard */,
@@ -129,6 +137,44 @@
 				E0726790243E724C00F34474 /* Info.plist */,
 			);
 			path = "E-Commerce SATUITests";
+			sourceTree = "<group>";
+		};
+		E072679C243E748800F34474 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E037516C243F23C100A66075 /* ProductInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E072679D243E749200F34474 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E072679E243E749900F34474 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E072679F243E74CD00F34474 /* Network Manager */ = {
+			isa = PBXGroup;
+			children = (
+				E07267A1243E754B00F34474 /* NetworkManager.swift */,
+			);
+			path = "Network Manager";
+			sourceTree = "<group>";
+		};
+		E07267A0243E74F400F34474 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E072676D243E724300F34474 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +310,8 @@
 			files = (
 				E072676E243E724300F34474 /* ViewController.swift in Sources */,
 				E0726774243E724300F34474 /* E_Commerce_SAT.xcdatamodeld in Sources */,
+				E07267A2243E754B00F34474 /* NetworkManager.swift in Sources */,
+				E037516D243F23C100A66075 /* ProductInfo.swift in Sources */,
 				E072676A243E724300F34474 /* AppDelegate.swift in Sources */,
 				E072676C243E724300F34474 /* SceneDelegate.swift in Sources */,
 			);
@@ -447,7 +495,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.heady.E-Commerce-SAT";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -464,7 +512,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.heady.E-Commerce-SAT";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
