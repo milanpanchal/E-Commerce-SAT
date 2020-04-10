@@ -24,6 +24,7 @@
 		E03751C0243F984000A66075 /* ProductVarientEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03751B8243F984000A66075 /* ProductVarientEntity+CoreDataProperties.swift */; };
 		E03751C4243FB6D500A66075 /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03751C3243FB6D500A66075 /* DateFormatterExtension.swift */; };
 		E03751C92440749200A66075 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = E03751C82440749200A66075 /* MBProgressHUD */; };
+		E03751CB2440E5E100A66075 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03751CA2440E5E100A66075 /* ProductViewController.swift */; };
 		E072676A243E724300F34474 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0726769243E724300F34474 /* AppDelegate.swift */; };
 		E072676C243E724300F34474 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072676B243E724300F34474 /* SceneDelegate.swift */; };
 		E0726771243E724300F34474 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E072676F243E724300F34474 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		E0726784243E724C00F34474 /* E_Commerce_SATTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0726783243E724C00F34474 /* E_Commerce_SATTests.swift */; };
 		E072678F243E724C00F34474 /* E_Commerce_SATUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072678E243E724C00F34474 /* E_Commerce_SATUITests.swift */; };
 		E07267A2243E754B00F34474 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07267A1243E754B00F34474 /* NetworkManager.swift */; };
+		E0EDE67B2440E750006659E4 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EDE67A2440E750006659E4 /* ProductCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,7 @@
 		E03751B7243F984000A66075 /* ProductVarientEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductVarientEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E03751B8243F984000A66075 /* ProductVarientEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductVarientEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E03751C3243FB6D500A66075 /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
+		E03751CA2440E5E100A66075 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		E0726766243E724300F34474 /* E-Commerce SAT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-Commerce SAT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0726769243E724300F34474 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E072676B243E724300F34474 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 		E072678E243E724C00F34474 /* E_Commerce_SATUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = E_Commerce_SATUITests.swift; sourceTree = "<group>"; };
 		E0726790243E724C00F34474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E07267A1243E754B00F34474 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E0EDE67A2440E750006659E4 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				E0375176243F34C700A66075 /* CategoryCollectionViewCell.swift */,
+				E0EDE67A2440E750006659E4 /* ProductCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				E037517C243F3BC700A66075 /* CategoryViewController.swift */,
+				E03751CA2440E5E100A66075 /* ProductViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -384,7 +390,9 @@
 			files = (
 				E0375170243F29E000A66075 /* Constant.swift in Sources */,
 				E0726774243E724300F34474 /* E_Commerce_SAT.xcdatamodeld in Sources */,
+				E0EDE67B2440E750006659E4 /* ProductCollectionViewCell.swift in Sources */,
 				E03751C4243FB6D500A66075 /* DateFormatterExtension.swift in Sources */,
+				E03751CB2440E5E100A66075 /* ProductViewController.swift in Sources */,
 				E0375173243F2A1C00A66075 /* UIColorExtension.swift in Sources */,
 				E03751BC243F984000A66075 /* CategoryEntity+CoreDataProperties.swift in Sources */,
 				E0375175243F2DA500A66075 /* UICollectionViewExtension.swift in Sources */,

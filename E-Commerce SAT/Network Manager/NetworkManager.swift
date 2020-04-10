@@ -9,8 +9,6 @@
 import Foundation
 
 final class NetworkManager: NSObject {
-
-    let baseUrl = "https://stark-spire-93433.herokuapp.com/json"
     
     // Create a singleton instance
     static let shared: NetworkManager = {
@@ -20,7 +18,7 @@ final class NetworkManager: NSObject {
 
     func fetchProductList(completionHandler: @escaping (ProductInfo) -> Void) {
         
-        let url = URL(string: baseUrl)!
+        let url = URL(string: Constants.API.baseUrl)!
         print("fetching data for url: \(url)")
         
         let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in

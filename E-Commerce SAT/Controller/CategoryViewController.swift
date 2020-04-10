@@ -17,7 +17,7 @@ class CategoryViewController: UIViewController {
     fileprivate let maxHeightForCell:CGFloat = 100
 
     fileprivate var itemsPerRow: CGFloat = 1
-    fileprivate var navigationTitle: String = NavigationBarTitle.Category
+    fileprivate var navigationTitle: String = Constants.NavigationBarTitle.category
     fileprivate var categoryEntityList:[CategoryEntity] = []
 
     lazy fileprivate var refreshControl: UIRefreshControl = {
@@ -159,6 +159,13 @@ extension CategoryViewController: UICollectionViewDataSource {
                 self.navigationController?.pushViewController(subCateogryVC, animated: true)
             }
 
+        } else if let productList = selectedCategory.products, productList.count > 0 {
+            
+            if let productVC = storyboard?.instantiateViewController(identifier: "ProductViewController") as? ProductViewController {
+                productVC.productEntityList = Array(productList)
+                self.navigationController?.pushViewController(productVC, animated: true)
+
+            }
         }
     }
 

@@ -19,15 +19,15 @@
         <attribute name="tax" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
     <entity name="ProductVarientEntity" representedClassName="ProductVarientEntity" syncable="YES">
-        <attribute name="color" attributeType="String"/>
+        <attribute name="color" optional="YES" attributeType="String"/>
         <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="price" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="size" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="size" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
         <element name="CategoryEntity" positionX="-63" positionY="-18" width="128" height="118"/>
         <element name="ProductEntity" positionX="-54" positionY="18" width="128" height="118"/>
-        <element name="ProductVarientEntity" positionX="-36" positionY="45" width="128" height="103"/>
         <element name="ProductTaxEntity" positionX="-18" positionY="72" width="128" height="73"/>
+        <element name="ProductVarientEntity" positionX="-36" positionY="45" width="128" height="103"/>
     </elements>
 </model>

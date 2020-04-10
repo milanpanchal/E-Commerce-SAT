@@ -8,11 +8,19 @@
 
 import Foundation
 
-struct NavigationBarTitle {
-    
-    static let Category = "Category"
+struct Constants {
+
+    struct API {
+        static let baseUrl = "https://stark-spire-93433.herokuapp.com/json"
+    }
+
+    struct NavigationBarTitle {
+        static let category = "Category"
+        static let product = "Product"
+    }
 
 }
+
 
 struct Platform {
     static let isSimulator: Bool = {
