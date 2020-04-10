@@ -13,3 +13,13 @@ struct NavigationBarTitle {
     static let selectCategory = "Select Category"
 
 }
+
+struct Platform {
+    static let isSimulator: Bool = {
+        #if arch(i386) || arch(x86_64)
+            return true
+        #else
+            return false
+        #endif
+    }()
+}

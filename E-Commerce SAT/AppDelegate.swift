@@ -16,6 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Use this for inspecting the Core Data
+        if Platform.isSimulator {
+            
+            if let libraryLocation = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).last {
+                // let path = libraryLocation.absoluteString.replacingOccurrences(of: "file://", with: "").removingPercentEncoding
+                print("Core Data File at: \(libraryLocation)Application Support")
+                
+            }
+            
+        }
+
         return true
     }
 

@@ -4,14 +4,14 @@
         <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="parentCategoryId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProductEntity"/>
+        <relationship name="products" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ProductEntity"/>
     </entity>
     <entity name="ProductEntity" representedClassName="ProductEntity" syncable="YES">
         <attribute name="dateAdded" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
-        <relationship name="tax" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProductTaxEntity"/>
-        <relationship name="variants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProductVarientEntity"/>
+        <relationship name="tax" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ProductTaxEntity"/>
+        <relationship name="variants" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ProductVarientEntity"/>
     </entity>
     <entity name="ProductTaxEntity" representedClassName="ProductTaxEntity" syncable="YES">
         <attribute name="name" attributeType="String"/>
