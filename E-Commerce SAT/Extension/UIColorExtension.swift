@@ -81,6 +81,11 @@ extension UIColor {
     public static var themeColorDarkBlack: UIColor {
         return UIColor(hexString: "#241F20")!
     }
+    
+    /// CoorHex: #F9F6F7
+    public static var themeColorBackground: UIColor {
+        return UIColor(hexString: "#F9F6F7")!
+    }
 
 }
 

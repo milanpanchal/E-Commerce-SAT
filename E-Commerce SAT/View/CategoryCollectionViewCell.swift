@@ -12,7 +12,14 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    @IBOutlet weak private var categoryName: UILabel!
+    @IBOutlet weak private var categoryName: UILabel! {
+        didSet {
+            categoryName.textColor = UIColor.themeColorDarkBlack
+            categoryName.textAlignment = .center
+            categoryName.font = UIFont.systemFont(ofSize: 20)
+            categoryName.numberOfLines = 0
+        }
+    }
         
     // MARK: - UICollectionViewCell methods
     override init(frame: CGRect) {
@@ -27,22 +34,27 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
     // MARK: - User defined methods
     
-    private func setupCell() {
+    fileprivate func setupCell() {
 
-        self.backgroundColor = UIColor.themeColorDarkBlack
-        self.layer.cornerRadius = 5
-        self.layer.masksToBounds = true
-        self.layer.shadowColor = UIColor.black.withAlphaComponent(0.15).cgColor
-        self.layer.shadowOffset = CGSize(width: 1, height: 7)
+        self.backgroundColor = UIColor.white
+        self.layer.cornerRadius = 8
+        self.layer.masksToBounds = false
         
+        self.addShadow()
     }
      
-    func setCategory(categoryVM: CategoryViewModel) {
-        
-        categoryName.textColor = UIColor.white
-        categoryName.textAlignment = .center
-        categoryName.font = UIFont.systemFont(ofSize: 20)
-        categoryName.numberOfLines = 0
-        categoryName.text = categoryVM.name
+    fileprivate func addShadow() {
+        self.layer.shadowOffset = CGSize(width: 1, height: 0)
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowRadius = 3
+        self.layer.shadowOpacity = 0.25
+    }
+
+    func setCategory(category: CategoryViewModel) {
+        categoryName.text = category.name
+    }
+    
+    func setCategory(category: CategoryEntity) {
+        categoryName.text = category.name ?? ""
     }
 }

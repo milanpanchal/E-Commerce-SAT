@@ -10,7 +10,7 @@ import Foundation
 
 struct NavigationBarTitle {
     
-    static let selectCategory = "Select Category"
+    static let Category = "Category"
 
 }
 

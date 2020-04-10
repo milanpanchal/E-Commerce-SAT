@@ -10,7 +10,7 @@
         <!--Category View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CategoryViewController" customModule="E_Commerce_SAT" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CategoryViewController" id="BYZ-38-t0r" customClass="CategoryViewController" customModule="E_Commerce_SAT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,7 +40,7 @@
                                                 </label>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.97254901959999995" green="0.98823529409999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="XuH-Ii-cV5" secondAttribute="trailing" constant="20" id="Bji-EH-ot2"/>
                                             <constraint firstItem="XuH-Ii-cV5" firstAttribute="leading" secondItem="Ewx-Yz-TdF" secondAttribute="leading" constant="20" id="fjM-LG-OD3"/>

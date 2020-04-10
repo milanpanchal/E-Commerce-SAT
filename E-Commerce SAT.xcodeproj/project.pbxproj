@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,7 @@
 		E03751BF243F984000A66075 /* ProductVarientEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03751B7243F984000A66075 /* ProductVarientEntity+CoreDataClass.swift */; };
 		E03751C0243F984000A66075 /* ProductVarientEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03751B8243F984000A66075 /* ProductVarientEntity+CoreDataProperties.swift */; };
 		E03751C4243FB6D500A66075 /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03751C3243FB6D500A66075 /* DateFormatterExtension.swift */; };
+		E03751C92440749200A66075 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = E03751C82440749200A66075 /* MBProgressHUD */; };
 		E072676A243E724300F34474 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0726769243E724300F34474 /* AppDelegate.swift */; };
 		E072676C243E724300F34474 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072676B243E724300F34474 /* SceneDelegate.swift */; };
 		E0726771243E724300F34474 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E072676F243E724300F34474 /* Main.storyboard */; };
@@ -90,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E03751C92440749200A66075 /* MBProgressHUD in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +261,9 @@
 			dependencies = (
 			);
 			name = "E-Commerce SAT";
+			packageProductDependencies = (
+				E03751C82440749200A66075 /* MBProgressHUD */,
+			);
 			productName = "E-Commerce SAT";
 			productReference = E0726766243E724300F34474 /* E-Commerce SAT.app */;
 			productType = "com.apple.product-type.application";
@@ -331,6 +336,9 @@
 				Base,
 			);
 			mainGroup = E072675D243E724300F34474;
+			packageReferences = (
+				E03751C72440749200A66075 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
+			);
 			productRefGroup = E0726767243E724300F34474 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -716,6 +724,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E03751C72440749200A66075 /* XCRemoteSwiftPackageReference "MBProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jdg/MBProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E03751C82440749200A66075 /* MBProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E03751C72440749200A66075 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
+			productName = MBProgressHUD;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E0726772243E724300F34474 /* E_Commerce_SAT.xcdatamodeld */ = {

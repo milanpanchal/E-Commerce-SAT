@@ -21,6 +21,7 @@ extension CategoryEntity {
     @NSManaged public var name: String?
     @NSManaged public var parentCategoryId: Int16
     @NSManaged public var products: Set<ProductEntity>?
+    @NSManaged public var childCategories: [Int]
 
     class func insetAll(categoryList: [Category]) {
         
@@ -36,6 +37,7 @@ extension CategoryEntity {
             let categoryEntity = CategoryEntity(context: context)
             categoryEntity.id = Int16(categoryData.id)
             categoryEntity.name = categoryData.name
+            categoryEntity.childCategories = categoryData.childCategories
             
             // Save products
             for product in categoryData.products {
@@ -79,7 +81,7 @@ extension CategoryEntity {
         insetAll(categoryList: [categoryData])
     }
     
-    class func fetch() -> [CategoryEntity]? {
+    class func fetch(predicate: NSPredicate?=nil) -> [CategoryEntity]? {
      
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             print("appDeletegate not found")
@@ -89,7 +91,12 @@ extension CategoryEntity {
         let context = appDelegate.persistentContainer.viewContext
 
         do {
-            let categoryData = try context.fetch(CategoryEntity.fetchRequest()) as? [CategoryEntity]
+            let req:NSFetchRequest<CategoryEntity> = CategoryEntity.fetchRequest()
+            if let predicate = predicate {
+                req.predicate = predicate
+            }
+            
+            let categoryData = try context.fetch(req)
             return categoryData
             
         } catch let fetchError {

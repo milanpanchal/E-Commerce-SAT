@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class CategoryViewController: UIViewController {
 
     // MARK: - Properties
     fileprivate let reuseIdentifier = "CategoryCollectionViewCell"
     fileprivate let sectionInsets = UIEdgeInsets(top: 20.0, left: 12.0, bottom: 10.0, right: 12.0)
+    fileprivate let maxHeightForCell:CGFloat = 100
+
     fileprivate var itemsPerRow: CGFloat = 1
-    fileprivate let maxHeightForCell:CGFloat = 150
-    
+    fileprivate var navigationTitle: String = NavigationBarTitle.Category
+    fileprivate var categoryEntityList:[CategoryEntity] = []
+
     lazy fileprivate var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
@@ -25,51 +29,62 @@ class CategoryViewController: UIViewController {
     
     @IBOutlet weak private var categoryCollectionView: UICollectionView! {
         didSet {
-            categoryCollectionView.backgroundColor = UIColor.white
+            categoryCollectionView.backgroundColor = UIColor.themeColorBackground
             categoryCollectionView.alwaysBounceVertical = true
             categoryCollectionView.delegate = self
             categoryCollectionView.dataSource = self
             categoryCollectionView.refreshControl = refreshControl
-            categoryCollectionView.isHidden = true
         }
     }
     
     @IBOutlet weak var listGridBtn: UIBarButtonItem!
 
-
-    private var categoryVMList:[CategoryViewModel] = []
-    
     // MARK: - View controller life cycle methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
             
-        self.navigationItem.title = NavigationBarTitle.selectCategory
+
+        if self.categoryEntityList.count == 0 {
+
+            if let fetchData = CategoryEntity.fetch(), fetchData.count > 0 {
+                self.categoryEntityList = fetchData
+            } else {
+                categoryCollectionView.isHidden = true
+                self.apiCallToFetchAllCategoryList()
+            }
+        }
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationItem.title = navigationTitle
         self.toggleListGridImage()
-        
-        self.apiCallToFetchAllCategoryList()
-        
     }
 
     // MARK: - User defined methods
 
     fileprivate func apiCallToFetchAllCategoryList() {
 
+        let progressHUD = MBProgressHUD.showAdded(to: self.navigationController!.view, animated: true)
+        
         NetworkManager.shared.fetchProductList() { [weak self] (productInfo) in
-            
-            self?.categoryVMList = productInfo.categories.map({ return CategoryViewModel(category: $0)})
-            
+                        
             DispatchQueue.main.async {
 
+                // Hide progressHUD
+                progressHUD.hide(animated: true)
+                
                 // TODO: 
                 CategoryEntity.deleteAllData()
                 CategoryEntity.insetAll(categoryList: productInfo.categories)
                 
+            
                 if let fetchData = CategoryEntity.fetch() {
-                    _ = fetchData.map { (obj) -> Void in
-                        print(">>>>> CategoryName " + (obj.name ?? "") + "Product Names: \(obj.products?.first?.dateAdded)" + "Count: \(obj.products?.count)")
-                    }
+                    self?.categoryEntityList = fetchData
                 }
                 
                 // Hide refresh control if refreshing
@@ -104,9 +119,7 @@ class CategoryViewController: UIViewController {
             listGridBtn.image = UIImage(systemName: "list.bullet")
         }
         
-    }
-    
-    
+    }    
 }
 
 
@@ -114,19 +127,39 @@ extension CategoryViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if categoryVMList.count == 0 {
+        if categoryEntityList.count == 0 {
             collectionView.setEmptyMessage("No data found")
         } else {
             collectionView.restore()
         }
-        return categoryVMList.count
+        return categoryEntityList.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CategoryCollectionViewCell
-        cell.setCategory(categoryVM: categoryVMList[indexPath.item])
+        cell.setCategory(category: categoryEntityList[indexPath.item])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let selectedCategory = categoryEntityList[indexPath.row]
+        
+        if selectedCategory.childCategories.count > 0 { // Reload list with subcategories
+
+            if let subCateogryVC = storyboard?.instantiateViewController(identifier: "CategoryViewController") as? CategoryViewController {
+                
+                
+                subCateogryVC.itemsPerRow = self.itemsPerRow
+                subCateogryVC.navigationTitle = selectedCategory.name ?? ""
+             
+                let predicate = NSPredicate(format: "ANY self.id in %@", selectedCategory.childCategories)
+                subCateogryVC.categoryEntityList = CategoryEntity.fetch(predicate: predicate) ?? []
+                self.navigationController?.pushViewController(subCateogryVC, animated: true)
+            }
+
+        }
     }
 
 }
@@ -139,8 +172,8 @@ extension CategoryViewController : UICollectionViewDelegateFlowLayout {
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
         let availableWidth = collectionView.frame.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow
-        
-        return CGSize(width: widthPerItem, height: min(widthPerItem, maxHeightForCell))
+        let heightPerItem = (itemsPerRow == 1) ? maxHeightForCell : widthPerItem
+        return CGSize(width: widthPerItem, height: heightPerItem)
     }
     
     func collectionView(_ collectionView: UICollectionView,
