@@ -18,6 +18,8 @@ Implemeneted **Heady - Skill Assessment Test (SAT) for E-Commerce** in Swift lan
   - Json Parsing: `Decodable & Encodable` protocol
   - Decoding Strategy: `.convertFromSnakeCase`
 
+- Design Pattern: MVVM
+
 
 
 ## Features

@@ -11,6 +11,7 @@
 		E007205F2441CBD0002C6ECA /* NSManagedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E007205E2441CBD0002C6ECA /* NSManagedObject+Extension.swift */; };
 		E007206124423B5A002C6ECA /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E007206024423B5A002C6ECA /* ProductViewModel.swift */; };
 		E00720632442437A002C6ECA /* NSObjectProtocol+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00720622442437A002C6ECA /* NSObjectProtocol+Extension.swift */; };
+		E0072065244248F3002C6ECA /* ProductViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0072064244248F3002C6ECA /* ProductViewModelTest.swift */; };
 		E037516D243F23C100A66075 /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E037516C243F23C100A66075 /* ProductInfo.swift */; };
 		E0375170243F29E000A66075 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E037516F243F29E000A66075 /* Constant.swift */; };
 		E0375173243F2A1C00A66075 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0375172243F2A1C00A66075 /* UIColor+Extension.swift */; };
@@ -35,7 +36,6 @@
 		E0726774243E724300F34474 /* E_Commerce_SAT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E0726772243E724300F34474 /* E_Commerce_SAT.xcdatamodeld */; };
 		E0726776243E724C00F34474 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0726775243E724C00F34474 /* Assets.xcassets */; };
 		E0726779243E724C00F34474 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0726777243E724C00F34474 /* LaunchScreen.storyboard */; };
-		E0726784243E724C00F34474 /* E_Commerce_SATTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0726783243E724C00F34474 /* E_Commerce_SATTests.swift */; };
 		E072678F243E724C00F34474 /* E_Commerce_SATUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072678E243E724C00F34474 /* E_Commerce_SATUITests.swift */; };
 		E07267A2243E754B00F34474 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07267A1243E754B00F34474 /* NetworkManager.swift */; };
 		E0EDE67B2440E750006659E4 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EDE67A2440E750006659E4 /* ProductCollectionViewCell.swift */; };
@@ -63,6 +63,7 @@
 		E007205E2441CBD0002C6ECA /* NSManagedObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extension.swift"; sourceTree = "<group>"; };
 		E007206024423B5A002C6ECA /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		E00720622442437A002C6ECA /* NSObjectProtocol+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+Extension.swift"; sourceTree = "<group>"; };
+		E0072064244248F3002C6ECA /* ProductViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModelTest.swift; sourceTree = "<group>"; };
 		E037516C243F23C100A66075 /* ProductInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
 		E037516F243F29E000A66075 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		E0375172243F2A1C00A66075 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -89,7 +90,6 @@
 		E0726778243E724C00F34474 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E072677A243E724C00F34474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E072677F243E724C00F34474 /* E-Commerce SATTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "E-Commerce SATTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E0726783243E724C00F34474 /* E_Commerce_SATTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = E_Commerce_SATTests.swift; sourceTree = "<group>"; };
 		E0726785243E724C00F34474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E072678A243E724C00F34474 /* E-Commerce SATUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "E-Commerce SATUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E072678E243E724C00F34474 /* E_Commerce_SATUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = E_Commerce_SATUITests.swift; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 		E0726782243E724C00F34474 /* E-Commerce SATTests */ = {
 			isa = PBXGroup;
 			children = (
-				E0726783243E724C00F34474 /* E_Commerce_SATTests.swift */,
+				E0072064244248F3002C6ECA /* ProductViewModelTest.swift */,
 				E0726785243E724C00F34474 /* Info.plist */,
 			);
 			path = "E-Commerce SATTests";
@@ -433,7 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0726784243E724C00F34474 /* E_Commerce_SATTests.swift in Sources */,
+				E0072065244248F3002C6ECA /* ProductViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
