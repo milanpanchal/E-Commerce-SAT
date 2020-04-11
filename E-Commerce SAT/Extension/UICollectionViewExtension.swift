@@ -9,7 +9,11 @@
 import UIKit
 
 extension UICollectionView {
-    
+        
+    func resetScrollPositionToTop() {
+        self.contentOffset = CGPoint(x: -contentInset.left, y: -contentInset.top)
+    }
+
     func setEmptyMessage(_ message: String) {
         let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
         messageLabel.text = message

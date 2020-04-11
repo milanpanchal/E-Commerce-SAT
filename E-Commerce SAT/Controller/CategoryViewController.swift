@@ -80,7 +80,8 @@ class CategoryViewController: UIViewController {
                 
                 // TODO: 
                 CategoryEntity.deleteAllData()
-                CategoryEntity.insetAll(categoryList: productInfo.categories)
+                CategoryEntity.insetAll(categoryList: productInfo.categories,
+                                        rankingList: productInfo.rankings)
                 
             
                 if let fetchData = CategoryEntity.fetch() {
@@ -162,7 +163,11 @@ extension CategoryViewController: UICollectionViewDataSource {
         } else if let productList = selectedCategory.products, productList.count > 0 {
             
             if let productVC = storyboard?.instantiateViewController(identifier: "ProductViewController") as? ProductViewController {
-                productVC.productEntityList = Array(productList)
+                productVC.navigationTitle = selectedCategory.name
+                productVC.productEntityList = Array(productList).sorted(by: { (prod1, prod2) -> Bool in
+                    return prod1.name ?? "" < prod2.name ?? ""
+                })
+                
                 self.navigationController?.pushViewController(productVC, animated: true)
 
             }

@@ -9,15 +9,15 @@
 import UIKit
 
 class ProductViewController: UIViewController {
-
+    
     // MARK: - Properties
     fileprivate let reuseIdentifier = "ProductCollectionViewCell"
     fileprivate let sectionInsets = UIEdgeInsets(top: 20.0, left: 12.0, bottom: 20.0, right: 12.0)
     fileprivate let maxHeightForCell:CGFloat = 200
     fileprivate let itemsPerRow: CGFloat = 2.0
-
+    
     var productEntityList:[ProductEntity] = []
-
+    var navigationTitle: String?
     
     @IBOutlet weak private var productCollectionView: UICollectionView! {
         didSet {
@@ -28,23 +28,93 @@ class ProductViewController: UIViewController {
         }
     }
     
-
+    
     // MARK: - View controller life cycle methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
 
-        self.navigationItem.title = Constants.NavigationBarTitle.product
-        
-        if self.productEntityList.count == 0 {
-            
-            productEntityList = ProductEntity.fetch() ?? []
+        self.navigationItem.title = navigationTitle
+
+        if productEntityList.count == 0 {
+            setupProductView(productDisplayView: .mostViewdProdcuts)
+        } else {
+
+            // Remove switching menu from the navigation
+            self.navigationItem.rightBarButtonItem = nil
+
         }
     }
-
+    
     // MARK: - User defined methods
+    
+    fileprivate func setupProductView(productDisplayView: ProductDisplayView) {
+        
+        var predicate: NSPredicate? = nil
+        var sortDescriptor: NSSortDescriptor? = nil
+        
+        switch productDisplayView {
+            
+        case .mostViewdProdcuts:
+            navigationTitle = Constants.NavigationBarTitle.mostViewdProduct
+            predicate = NSPredicate(format: "viewCount > 0")
+            sortDescriptor = NSSortDescriptor(key: "viewCount", ascending: false)
+            
+        case.mostOrderedProducts:
+            navigationTitle = Constants.NavigationBarTitle.mostOrderedProduct
+            predicate = NSPredicate(format: "orderCount > 0")
+            sortDescriptor = NSSortDescriptor(key: "orderCount", ascending: false)
+            
+        case .mostSharedProducts:
+            navigationTitle = Constants.NavigationBarTitle.mostSharedProduct
+            predicate = NSPredicate(format: "shares > 0")
+            sortDescriptor = NSSortDescriptor(key: "shares", ascending: false)
+            
+        case .allProducts:
+            navigationTitle = Constants.NavigationBarTitle.product
+            sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
 
+        }
+        
+        self.navigationItem.title = navigationTitle
+        productEntityList = ProductEntity.fetch(predicate: predicate,
+                                                sortDescriptor: sortDescriptor) ?? []
+
+        productCollectionView.resetScrollPositionToTop()
+        productCollectionView.reloadData()
+        
+    }
+    
+    @IBAction func didTapOnSwiftProductView(_ sender: UIBarButtonItem) {
+    
+        let alert = UIAlertController(title: "Select One",
+                                      message: "Please select any one option to view products",
+                                      preferredStyle: .actionSheet)
+
+        
+        alert.addAction(UIAlertAction(title: Constants.NavigationBarTitle.mostViewdProduct, style: .default) { (action) in
+            self.setupProductView(productDisplayView: .mostViewdProdcuts)
+        })
+
+        alert.addAction(UIAlertAction(title: Constants.NavigationBarTitle.mostOrderedProduct, style: .default) { (action) in
+            self.setupProductView(productDisplayView: .mostOrderedProducts)
+        })
+
+        alert.addAction(UIAlertAction(title: Constants.NavigationBarTitle.mostSharedProduct, style: .default) { (action) in
+            self.setupProductView(productDisplayView: .mostSharedProducts)
+        })
+        
+        alert.addAction(UIAlertAction(title: "All Products (A → Z)", style: .default) { (action) in
+            self.setupProductView(productDisplayView: .allProducts)
+        })
+
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        self.present(alert, animated: true)
+
+    }
+    
 }
 
 
@@ -59,21 +129,21 @@ extension ProductViewController: UICollectionViewDataSource {
         }
         return productEntityList.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ProductCollectionViewCell
         cell.setProduct(product: productEntityList[indexPath.item])
         return cell
     }
-
+    
 }
 
 extension ProductViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-
+        
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
         let availableWidth = collectionView.frame.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow

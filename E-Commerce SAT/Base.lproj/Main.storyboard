@@ -166,7 +166,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="I5H-b2-L5i"/>
                     </view>
-                    <navigationItem key="navigationItem" id="STl-Qn-NSW"/>
+                    <navigationItem key="navigationItem" id="STl-Qn-NSW">
+                        <barButtonItem key="rightBarButtonItem" image="line.horizontal.3.decrease.circle" catalog="system" id="9aX-PB-8RB">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="didTapOnSwiftProductView:" destination="Pm3-Kg-NRm" id="RTi-WM-uMW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="productCollectionView" destination="HRC-Mo-2FK" id="AM1-Db-pwU"/>
                     </connections>
@@ -203,13 +210,14 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="pmA-IW-Gm9" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="YQb-12-sTl">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Dkg-1O-FqM" kind="relationship" relationship="viewControllers" id="szN-hf-BKq"/>
                         <segue destination="7aN-ts-Aa5" kind="relationship" relationship="viewControllers" id="SLr-zL-HWB"/>
+                        <segue destination="Dkg-1O-FqM" kind="relationship" relationship="viewControllers" id="szN-hf-BKq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EJM-5G-EyL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -238,6 +246,7 @@
     </scenes>
     <resources>
         <image name="folder.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="line.horizontal.3.decrease.circle" catalog="system" width="64" height="60"/>
         <image name="list.bullet" catalog="system" width="64" height="44"/>
         <image name="rectangle.grid.2x2" catalog="system" width="64" height="48"/>
     </resources>

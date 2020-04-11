@@ -23,7 +23,7 @@ extension CategoryEntity {
     @NSManaged public var products: Set<ProductEntity>?
     @NSManaged public var childCategories: [Int]
 
-    class func insetAll(categoryList: [Category]) {
+    class func insetAll(categoryList: [Category], rankingList:[Ranking]) {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             print("appDeletegate not found")
@@ -46,6 +46,27 @@ extension CategoryEntity {
                 productEntity.id = Int16(product.id)
                 productEntity.name = product.name
                 productEntity.dateAdded = product.dateAdded
+                
+                // Setting product ratings i.e. orderCount, viewCount, shares
+                for list in rankingList {
+                    
+                    if let firstProduct = (list.products.filter { $0.id == product.id}).first {
+                        
+                        if let orderCount = firstProduct.orderCount {
+                            productEntity.orderCount = Int32(orderCount)
+                        }
+
+                        if let viewCount = firstProduct.viewCount {
+                            productEntity.viewCount = Int32(viewCount)
+                        }
+
+                        if let shares = firstProduct.shares {
+                            productEntity.shares = Int32(shares)
+                        }
+
+                    }
+                    
+                }
                 
                 // Setting product variant
                 for varient in product.variants {
@@ -76,11 +97,7 @@ extension CategoryEntity {
         }
 
     }
-    
-    class func inset(categoryData: Category) {
-        insetAll(categoryList: [categoryData])
-    }
-    
+        
     class func fetch(predicate: NSPredicate?=nil) -> [CategoryEntity]? {
      
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {

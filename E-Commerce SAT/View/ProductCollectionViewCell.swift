@@ -78,10 +78,10 @@ class ProductCollectionViewCell: UICollectionViewCell {
             let priceString = currencyFormatter.string(from: NSNumber(value: firstVariant.price))!
             priceLbl.text = priceString
             
-            var colorSize = firstVariant.color ?? ""
+            var colorSize = "Color: \(firstVariant.color ?? "NA")"
             
             if firstVariant.size != -1 {
-                colorSize += " | \(firstVariant.size)"
+                colorSize += " | Size: \(firstVariant.size)"
             }
             colorAndSizeLbl.text = colorSize
         }

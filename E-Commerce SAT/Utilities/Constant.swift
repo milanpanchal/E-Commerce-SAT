@@ -8,6 +8,13 @@
 
 import Foundation
 
+enum ProductDisplayView {
+    case allProducts
+    case mostViewdProdcuts
+    case mostOrderedProducts
+    case mostSharedProducts
+}
+
 struct Constants {
 
     struct API {
@@ -17,6 +24,9 @@ struct Constants {
     struct NavigationBarTitle {
         static let category = "Category"
         static let product = "Product"
+        static let mostViewdProduct = "Most Viewd Product"
+        static let mostOrderedProduct = "Most Ordered Product"
+        static let mostSharedProduct = "Most Shared Product"
     }
 
 }
