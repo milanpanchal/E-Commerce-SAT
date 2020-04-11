@@ -36,7 +36,11 @@ class ProductViewController: UIViewController {
         // Do any additional setup after loading the view.
 
         self.navigationItem.title = Constants.NavigationBarTitle.product
-        productCollectionView.reloadData()
+        
+        if self.productEntityList.count == 0 {
+            
+            productEntityList = ProductEntity.fetch() ?? []
+        }
     }
 
     // MARK: - User defined methods

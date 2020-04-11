@@ -9,7 +9,7 @@
 
 import Foundation
 import CoreData
-
+import UIKit
 
 extension ProductEntity {
 
@@ -22,6 +22,31 @@ extension ProductEntity {
     @NSManaged public var dateAdded: Date?
     @NSManaged public var variants: Set<ProductVarientEntity>?
     @NSManaged public var tax: ProductTaxEntity?
+
+    class func fetch(predicate: NSPredicate?=nil) -> [ProductEntity]? {
+     
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            print("appDeletegate not found")
+            return nil
+        }
+
+        let context = appDelegate.persistentContainer.viewContext
+
+        do {
+            let req:NSFetchRequest<ProductEntity> = ProductEntity.fetchRequest()
+            if let predicate = predicate {
+                req.predicate = predicate
+            }
+            
+            let fetchData = try context.fetch(req)
+            return fetchData
+            
+        } catch let fetchError {
+            print("Fetch Error: \(fetchError)")
+        }
+        
+        return nil
+    }
 
 }
 
