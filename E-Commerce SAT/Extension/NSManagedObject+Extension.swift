@@ -135,7 +135,7 @@ extension NSManagedObject {
 
     }
 
-    private class func createProductVarientEntity(variants: [Category.Product.Variant]) -> [ProductVarientEntity] {
+    private class func createProductVarientEntity(variants: [Variant]) -> [ProductVarientEntity] {
         var variantEntityList = [ProductVarientEntity]()
         
         for varient in variants {
@@ -153,7 +153,7 @@ extension NSManagedObject {
         return variantEntityList
     }
 
-    private class func createProductEntity(products: [Category.Product], rankingList: [Ranking]) -> [ProductEntity] {
+    private class func createProductEntity(products: [Product], rankingList: [Ranking]) -> [ProductEntity] {
         var productList = [ProductEntity]()
         
         for product in products {

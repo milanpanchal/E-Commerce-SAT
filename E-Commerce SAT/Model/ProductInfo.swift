@@ -19,27 +19,28 @@ struct Category: Codable {
     let products: [Product]
     let childCategories: [Int]
     
-    struct Product: Codable {
-        let id: Int
-        let name: String
-        let dateAdded: Date?
-        
-        let variants: [Variant]
-        // let tax: Tax?
-        
-        struct Variant: Codable {
-            let id: Int
-            let color: String
-            let size: Int?
-            let price: Int
-        }
-        
-        /* struct Tax: Codable {
-               let name: String
-               let value: Double
-           } */
-    }
 }
+
+struct Product: Codable {
+    let id: Int
+    let name: String
+    let dateAdded: Date?
+    let variants: [Variant]
+    // let tax: Tax?
+}
+
+struct Variant: Codable {
+    let id: Int
+    let color: String
+    let size: Int?
+    let price: Int
+}
+
+/* struct Tax: Codable {
+       let name: String
+       let value: Double
+   } */
+
 
 struct Ranking: Codable {
     let ranking: String
