@@ -28,9 +28,9 @@
         <attribute name="size" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="CategoryEntity" positionX="-63" positionY="-18" width="128" height="118"/>
-        <element name="ProductEntity" positionX="-54" positionY="18" width="128" height="163"/>
-        <element name="ProductTaxEntity" positionX="-18" positionY="72" width="128" height="73"/>
-        <element name="ProductVarientEntity" positionX="-36" positionY="45" width="128" height="103"/>
+        <element name="CategoryEntity" positionX="-394.75390625" positionY="-62.2734375" width="128" height="118"/>
+        <element name="ProductEntity" positionX="-393.77734375" positionY="169.7265625" width="128" height="163"/>
+        <element name="ProductTaxEntity" positionX="-457.109375" positionY="407.375" width="128" height="73"/>
+        <element name="ProductVarientEntity" positionX="-177.59765625" positionY="385.4609375" width="128" height="103"/>
     </elements>
 </model>

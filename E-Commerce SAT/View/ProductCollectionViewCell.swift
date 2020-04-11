@@ -34,6 +34,14 @@ class ProductCollectionViewCell: UICollectionViewCell {
         }
     }
 
+    @IBOutlet weak private var countLbl: UILabel! {
+        didSet {
+            countLbl.textColor = UIColor.lightGray
+            countLbl.font = UIFont.boldSystemFont(ofSize: 12)
+            
+        }
+    }
+
         
     // MARK: - UICollectionViewCell methods
     override init(frame: CGRect) {
@@ -63,26 +71,12 @@ class ProductCollectionViewCell: UICollectionViewCell {
         self.layer.shadowRadius = 3
         self.layer.shadowOpacity = 0.25
     }
-    
-    func setProduct(product: ProductEntity) {
-        productNameLbl.text = product.name
-        
-        if let firstVariant = product.variants?.first {
-            
-            let currencyFormatter = NumberFormatter()
-            currencyFormatter.usesGroupingSeparator = true
-            currencyFormatter.numberStyle = .currency
-            currencyFormatter.locale = Locale(identifier: "en_IN")
-
-            let priceString = currencyFormatter.string(from: NSNumber(value: firstVariant.price))!
-            priceLbl.text = priceString
-            
-            var colorSize = "Color: \(firstVariant.color ?? "NA")"
-            
-            if firstVariant.size != -1 {
-                colorSize += " | Size: \(firstVariant.size)"
-            }
-            colorAndSizeLbl.text = colorSize
-        }
+   
+    func setProduct(productViewModel: ProductViewModel) {
+        productNameLbl.text = productViewModel.name
+        priceLbl.text = productViewModel.formattedPrice
+        colorAndSizeLbl.text = productViewModel.colorSize
+        countLbl.text = productViewModel.valueForCounts
     }
+    
 }

@@ -139,7 +139,7 @@ extension CategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CategoryCollectionViewCell
-        cell.setCategory(category: categoryEntityList[indexPath.item])
+        cell.setCategory(category: CategoryViewModel(categoryEntityList[indexPath.item]))
         return cell
     }
     
@@ -149,7 +149,7 @@ extension CategoryViewController: UICollectionViewDataSource {
         
         if selectedCategory.childCategories.count > 0 { // Reload list with subcategories
             
-            guard let subCateogryVC = storyboard?.instantiateViewController(identifier: "CategoryViewController") as? CategoryViewController else {
+            guard let subCateogryVC = storyboard?.instantiateViewController(identifier: CategoryViewController.className) as? CategoryViewController else {
                 fatalError("Unable to find storyboard")
             }
             
@@ -168,7 +168,7 @@ extension CategoryViewController: UICollectionViewDataSource {
             
         } else if let productList = selectedCategory.products, productList.count > 0 {
             
-            if let productVC = storyboard?.instantiateViewController(identifier: "ProductViewController") as? ProductViewController {
+            if let productVC = storyboard?.instantiateViewController(identifier: ProductViewController.className) as? ProductViewController {
                 productVC.navigationTitle = selectedCategory.name
                 productVC.productEntityList = Array(productList).sorted(by: { (prod1, prod2) -> Bool in
                     return prod1.name ?? "" < prod2.name ?? ""

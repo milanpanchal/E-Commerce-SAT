@@ -13,11 +13,12 @@ class ProductViewController: UIViewController {
     // MARK: - Properties
     fileprivate let reuseIdentifier = "ProductCollectionViewCell"
     fileprivate let sectionInsets = UIEdgeInsets(top: 20.0, left: 12.0, bottom: 20.0, right: 12.0)
-    fileprivate let maxHeightForCell:CGFloat = 200
+    fileprivate let maxHeightForCell:CGFloat = 220
     fileprivate let itemsPerRow: CGFloat = 2.0
     
     var productEntityList:[ProductEntity] = []
     var navigationTitle: String?
+    var productDisplayView: ProductDisplayView = .allProducts
     
     @IBOutlet weak private var productCollectionView: UICollectionView! {
         didSet {
@@ -34,21 +35,18 @@ class ProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = navigationTitle
-
         if productEntityList.count == 0 {
             setupProductView(productDisplayView: .mostViewdProdcuts)
         } else {
-
-            // Remove switching menu from the navigation
-            self.navigationItem.rightBarButtonItem = nil
-
+            setupProductView(productDisplayView: .categoryProducts)
         }
     }
     
     // MARK: - User defined methods
     
     fileprivate func setupProductView(productDisplayView: ProductDisplayView) {
+        
+        self.productDisplayView = productDisplayView
         
         var predicate: NSPredicate? = nil
         var sortDescriptor: NSSortDescriptor? = nil
@@ -74,16 +72,25 @@ class ProductViewController: UIViewController {
             navigationTitle = Constants.NavigationBarTitle.product
             sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
 
+        case .categoryProducts:
+//            navigationTitle = <<already set from parent class>>
+            sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+            self.navigationItem.rightBarButtonItem = nil
         }
         
         self.navigationItem.title = navigationTitle
-        
-        if let fetchList = try? ProductEntity.fetch(predicate: predicate, sortDescriptor: sortDescriptor) as? [ProductEntity] {
-            productEntityList = fetchList
-        }
 
-        productCollectionView.resetScrollPositionToTop()
-        productCollectionView.reloadData()
+        if productDisplayView != .categoryProducts {
+            
+            if let fetchList = try? ProductEntity.fetch(predicate: predicate, sortDescriptor: sortDescriptor) as? [ProductEntity] {
+                productEntityList = fetchList
+            }
+
+            productCollectionView.resetScrollPositionToTop()
+            productCollectionView.reloadData()
+
+        }
+        
         
     }
     
@@ -135,7 +142,10 @@ extension ProductViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ProductCollectionViewCell
-        cell.setProduct(product: productEntityList[indexPath.item])
+        
+        let productViewModel = ProductViewModel(productEntity: productEntityList[indexPath.item],
+                                                displayMode: productDisplayView)
+        cell.setProduct(productViewModel: productViewModel)
         return cell
     }
     

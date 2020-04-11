@@ -54,7 +54,4 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         categoryName.text = category.name
     }
     
-    func setCategory(category: CategoryEntity) {
-        categoryName.text = category.name ?? ""
-    }
 }

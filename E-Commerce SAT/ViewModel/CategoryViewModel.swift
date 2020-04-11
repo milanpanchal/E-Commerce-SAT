@@ -10,13 +10,13 @@ import Foundation
 
 struct CategoryViewModel {
 
-    private let category: Category
+    private let category: CategoryEntity
     
-    public init(category: Category) {
+    public init(_ category: CategoryEntity) {
       self.category = category
     }
 
-    public var name: String {
+    public var name: String? {
         return category.name
     }
 

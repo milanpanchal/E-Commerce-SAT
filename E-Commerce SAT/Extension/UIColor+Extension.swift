@@ -1,5 +1,5 @@
 //
-//  UIColorExtension.swift
+//  UIColor+Extension.swift
 //  E-Commerce SAT
 //
 //  Created by Milan Panchal on 09/04/20.

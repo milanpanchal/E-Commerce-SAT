@@ -1,5 +1,5 @@
 //
-//  DateFormatterExtension.swift
+//  DateFormatter+Extension.swift
 //  E-Commerce SAT
 //
 //  Created by Milan Panchal on 10/04/20.

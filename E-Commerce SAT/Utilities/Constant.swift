@@ -13,6 +13,7 @@ enum ProductDisplayView {
     case mostViewdProdcuts
     case mostOrderedProducts
     case mostSharedProducts
+    case categoryProducts
 }
 
 struct Constants {
