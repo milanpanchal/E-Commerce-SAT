@@ -182,8 +182,8 @@
 				E0726769243E724300F34474 /* AppDelegate.swift */,
 				E072676B243E724300F34474 /* SceneDelegate.swift */,
 				E072676F243E724300F34474 /* Main.storyboard */,
-				E0726775243E724C00F34474 /* Assets.xcassets */,
 				E0726777243E724C00F34474 /* LaunchScreen.storyboard */,
+				E0726775243E724C00F34474 /* Assets.xcassets */,
 				E072677A243E724C00F34474 /* Info.plist */,
 				E0726772243E724300F34474 /* E_Commerce_SAT.xcdatamodeld */,
 			);
