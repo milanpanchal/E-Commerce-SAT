@@ -48,7 +48,7 @@ class CategoryViewController: UIViewController {
 
         if self.categoryEntityList.count == 0 {
 
-            if let fetchData = CategoryEntity.fetch(), fetchData.count > 0 {
+            if let fetchData = try? CategoryEntity.fetchAll() as? [CategoryEntity], fetchData.count > 0 {
                 self.categoryEntityList = fetchData
             } else {
                 categoryCollectionView.isHidden = true
@@ -79,12 +79,10 @@ class CategoryViewController: UIViewController {
                 progressHUD.hide(animated: true)
                 
                 // TODO: 
-                CategoryEntity.deleteAllData()
-                CategoryEntity.insetAll(categoryList: productInfo.categories,
-                                        rankingList: productInfo.rankings)
-                
+                try? CategoryEntity.deleteAll()
+                CategoryEntity.saveAllInventory(productInfo: productInfo)
             
-                if let fetchData = CategoryEntity.fetch() {
+                if let fetchData = try? CategoryEntity.fetchAll() as? [CategoryEntity] {
                     self?.categoryEntityList = fetchData
                 }
                 
@@ -148,18 +146,24 @@ extension CategoryViewController: UICollectionViewDataSource {
         let selectedCategory = categoryEntityList[indexPath.row]
         
         if selectedCategory.childCategories.count > 0 { // Reload list with subcategories
-
-            if let subCateogryVC = storyboard?.instantiateViewController(identifier: "CategoryViewController") as? CategoryViewController {
-                
-                
-                subCateogryVC.itemsPerRow = self.itemsPerRow
-                subCateogryVC.navigationTitle = selectedCategory.name ?? ""
-             
-                let predicate = NSPredicate(format: "ANY self.id in %@", selectedCategory.childCategories)
-                subCateogryVC.categoryEntityList = CategoryEntity.fetch(predicate: predicate) ?? []
-                self.navigationController?.pushViewController(subCateogryVC, animated: true)
+            
+            guard let subCateogryVC = storyboard?.instantiateViewController(identifier: "CategoryViewController") as? CategoryViewController else {
+                fatalError("Unable to find storyboard")
             }
+            
+            let predicate = NSPredicate(format: "ANY self.id in %@", selectedCategory.childCategories)
 
+            guard let categoryList = try? CategoryEntity.fetch(predicate: predicate, sortDescriptor: nil) as? [CategoryEntity], categoryList.count > 0 else {
+                fatalError("No subcategory found")
+            }
+            
+            subCateogryVC.itemsPerRow = self.itemsPerRow
+            subCateogryVC.navigationTitle = selectedCategory.name ?? ""
+            
+            subCateogryVC.categoryEntityList = categoryList
+            self.navigationController?.pushViewController(subCateogryVC, animated: true)
+            
+            
         } else if let productList = selectedCategory.products, productList.count > 0 {
             
             if let productVC = storyboard?.instantiateViewController(identifier: "ProductViewController") as? ProductViewController {

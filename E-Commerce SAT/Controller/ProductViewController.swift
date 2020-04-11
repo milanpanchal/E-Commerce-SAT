@@ -77,8 +77,10 @@ class ProductViewController: UIViewController {
         }
         
         self.navigationItem.title = navigationTitle
-        productEntityList = ProductEntity.fetch(predicate: predicate,
-                                                sortDescriptor: sortDescriptor) ?? []
+        
+        if let fetchList = try? ProductEntity.fetch(predicate: predicate, sortDescriptor: sortDescriptor) as? [ProductEntity] {
+            productEntityList = fetchList
+        }
 
         productCollectionView.resetScrollPositionToTop()
         productCollectionView.reloadData()

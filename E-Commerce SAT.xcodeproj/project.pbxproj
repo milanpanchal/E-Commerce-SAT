@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E007205D2441C948002C6ECA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E007205C2441C948002C6ECA /* CoreDataManager.swift */; };
+		E007205F2441CBD0002C6ECA /* NSManagedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E007205E2441CBD0002C6ECA /* NSManagedObject+Extension.swift */; };
 		E037516D243F23C100A66075 /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E037516C243F23C100A66075 /* ProductInfo.swift */; };
 		E0375170243F29E000A66075 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E037516F243F29E000A66075 /* Constant.swift */; };
 		E0375173243F2A1C00A66075 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0375172243F2A1C00A66075 /* UIColorExtension.swift */; };
@@ -55,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E007205C2441C948002C6ECA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		E007205E2441CBD0002C6ECA /* NSManagedObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extension.swift"; sourceTree = "<group>"; };
 		E037516C243F23C100A66075 /* ProductInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
 		E037516F243F29E000A66075 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		E0375172243F2A1C00A66075 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				E037516F243F29E000A66075 /* Constant.swift */,
+				E007205C2441C948002C6ECA /* CoreDataManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 				E0375172243F2A1C00A66075 /* UIColorExtension.swift */,
 				E0375174243F2DA500A66075 /* UICollectionViewExtension.swift */,
 				E03751C3243FB6D500A66075 /* DateFormatterExtension.swift */,
+				E007205E2441CBD0002C6ECA /* NSManagedObject+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -396,12 +402,14 @@
 				E0375173243F2A1C00A66075 /* UIColorExtension.swift in Sources */,
 				E03751BC243F984000A66075 /* CategoryEntity+CoreDataProperties.swift in Sources */,
 				E0375175243F2DA500A66075 /* UICollectionViewExtension.swift in Sources */,
+				E007205D2441C948002C6ECA /* CoreDataManager.swift in Sources */,
 				E03751BA243F984000A66075 /* ProductTaxEntity+CoreDataProperties.swift in Sources */,
 				E07267A2243E754B00F34474 /* NetworkManager.swift in Sources */,
 				E0375179243F387D00A66075 /* CategoryViewModel.swift in Sources */,
 				E03751BF243F984000A66075 /* ProductVarientEntity+CoreDataClass.swift in Sources */,
 				E03751B9243F984000A66075 /* ProductTaxEntity+CoreDataClass.swift in Sources */,
 				E037516D243F23C100A66075 /* ProductInfo.swift in Sources */,
+				E007205F2441CBD0002C6ECA /* NSManagedObject+Extension.swift in Sources */,
 				E03751BD243F984000A66075 /* ProductEntity+CoreDataClass.swift in Sources */,
 				E03751BE243F984000A66075 /* ProductEntity+CoreDataProperties.swift in Sources */,
 				E037517A243F3A6000A66075 /* CategoryCollectionViewCell.swift in Sources */,
