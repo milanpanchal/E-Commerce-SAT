@@ -110,8 +110,15 @@ extension NSManagedObject {
 
             let categoryEntity = CategoryEntity(context: managedObjectContext)
             categoryEntity.id = Int16(categoryData.id)
-            categoryEntity.name = categoryData.name
+            categoryEntity.name = categoryData.name.trimmingCharacters(in: .whitespacesAndNewlines)
             categoryEntity.childCategories = categoryData.childCategories
+            
+            // Search parent cateogry
+            let filteredList = categoryList.filter { (categoryObj) -> Bool in
+                return categoryObj.childCategories.contains(categoryData.id)
+            }
+            
+            categoryEntity.parentCategoryId = Int16(filteredList.first?.id ?? -1)
             
             // Setting products
             let productList = createProductEntity(products: categoryData.products, rankingList: rankingList)

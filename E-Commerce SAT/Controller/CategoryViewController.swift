@@ -48,7 +48,9 @@ class CategoryViewController: UIViewController {
 
         if self.categoryEntityList.count == 0 {
 
-            if let fetchData = try? CategoryEntity.fetchAll() as? [CategoryEntity], fetchData.count > 0 {
+            let predicate = NSPredicate(format: "self.parentCategoryId == -1")
+            let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+            if let fetchData = try? CategoryEntity.fetch(predicate: predicate, sortDescriptor: sortDescriptor) as? [CategoryEntity], fetchData.count > 0 {
                 self.categoryEntityList = fetchData
             } else {
                 categoryCollectionView.isHidden = true

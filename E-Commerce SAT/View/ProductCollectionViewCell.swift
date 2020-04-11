@@ -16,7 +16,6 @@ class ProductCollectionViewCell: UICollectionViewCell {
         didSet {
             productNameLbl.textColor = UIColor.themeColorDarkBlack
             productNameLbl.font = UIFont.boldSystemFont(ofSize: 14)
-            productNameLbl.numberOfLines = 0
         }
     }
     
