@@ -30,6 +30,9 @@
 		E03751C4243FB6D500A66075 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03751C3243FB6D500A66075 /* DateFormatter+Extension.swift */; };
 		E03751C92440749200A66075 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = E03751C82440749200A66075 /* MBProgressHUD */; };
 		E03751CB2440E5E100A66075 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03751CA2440E5E100A66075 /* ProductViewController.swift */; };
+		E03E2FC42442EC2C003AB672 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E2FC32442EC2C003AB672 /* ProductDetailViewController.swift */; };
+		E03E2FC82442F6D0003AB672 /* ProductDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E2FC72442F6D0003AB672 /* ProductDetailCollectionViewCell.swift */; };
+		E03E2FCA2442FF2A003AB672 /* ProductVarientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03E2FC92442FF2A003AB672 /* ProductVarientViewModel.swift */; };
 		E072676A243E724300F34474 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0726769243E724300F34474 /* AppDelegate.swift */; };
 		E072676C243E724300F34474 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072676B243E724300F34474 /* SceneDelegate.swift */; };
 		E0726771243E724300F34474 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E072676F243E724300F34474 /* Main.storyboard */; };
@@ -81,6 +84,9 @@
 		E03751B8243F984000A66075 /* ProductVarientEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductVarientEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E03751C3243FB6D500A66075 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		E03751CA2440E5E100A66075 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		E03E2FC32442EC2C003AB672 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		E03E2FC72442F6D0003AB672 /* ProductDetailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		E03E2FC92442FF2A003AB672 /* ProductVarientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVarientViewModel.swift; sourceTree = "<group>"; };
 		E0726766243E724300F34474 /* E-Commerce SAT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-Commerce SAT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0726769243E724300F34474 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E072676B243E724300F34474 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -233,6 +239,7 @@
 			children = (
 				E0375176243F34C700A66075 /* CategoryCollectionViewCell.swift */,
 				E0EDE67A2440E750006659E4 /* ProductCollectionViewCell.swift */,
+				E03E2FC72442F6D0003AB672 /* ProductDetailCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -242,6 +249,7 @@
 			children = (
 				E0375178243F387D00A66075 /* CategoryViewModel.swift */,
 				E007206024423B5A002C6ECA /* ProductViewModel.swift */,
+				E03E2FC92442FF2A003AB672 /* ProductVarientViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -259,6 +267,7 @@
 			children = (
 				E037517C243F3BC700A66075 /* CategoryViewController.swift */,
 				E03751CA2440E5E100A66075 /* ProductViewController.swift */,
+				E03E2FC32442EC2C003AB672 /* ProductDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -403,6 +412,7 @@
 				E0375170243F29E000A66075 /* Constant.swift in Sources */,
 				E0726774243E724300F34474 /* E_Commerce_SAT.xcdatamodeld in Sources */,
 				E0EDE67B2440E750006659E4 /* ProductCollectionViewCell.swift in Sources */,
+				E03E2FC82442F6D0003AB672 /* ProductDetailCollectionViewCell.swift in Sources */,
 				E03751C4243FB6D500A66075 /* DateFormatter+Extension.swift in Sources */,
 				E03751CB2440E5E100A66075 /* ProductViewController.swift in Sources */,
 				E0375173243F2A1C00A66075 /* UIColor+Extension.swift in Sources */,
@@ -411,6 +421,7 @@
 				E007205D2441C948002C6ECA /* CoreDataManager.swift in Sources */,
 				E03751BA243F984000A66075 /* ProductTaxEntity+CoreDataProperties.swift in Sources */,
 				E07267A2243E754B00F34474 /* NetworkManager.swift in Sources */,
+				E03E2FC42442EC2C003AB672 /* ProductDetailViewController.swift in Sources */,
 				E0375179243F387D00A66075 /* CategoryViewModel.swift in Sources */,
 				E03751BF243F984000A66075 /* ProductVarientEntity+CoreDataClass.swift in Sources */,
 				E00720632442437A002C6ECA /* NSObjectProtocol+Extension.swift in Sources */,
@@ -419,6 +430,7 @@
 				E007205F2441CBD0002C6ECA /* NSManagedObject+Extension.swift in Sources */,
 				E03751BD243F984000A66075 /* ProductEntity+CoreDataClass.swift in Sources */,
 				E03751BE243F984000A66075 /* ProductEntity+CoreDataProperties.swift in Sources */,
+				E03E2FCA2442FF2A003AB672 /* ProductVarientViewModel.swift in Sources */,
 				E037517A243F3A6000A66075 /* CategoryCollectionViewCell.swift in Sources */,
 				E03751C0243F984000A66075 /* ProductVarientEntity+CoreDataProperties.swift in Sources */,
 				E072676A243E724300F34474 /* AppDelegate.swift in Sources */,

@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if let libraryLocation = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).last {
                 // let path = libraryLocation.absoluteString.replacingOccurrences(of: "file://", with: "").removingPercentEncoding
-                print("Core Data File at: \(libraryLocation)Application Support")
+                debugPrint("Core Data File at: \(libraryLocation)Application Support")
                 
             }
             

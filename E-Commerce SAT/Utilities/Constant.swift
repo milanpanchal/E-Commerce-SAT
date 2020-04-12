@@ -25,9 +25,21 @@ struct Constants {
     struct NavigationBarTitle {
         static let category = "Category"
         static let product = "Product"
+        static let productDetail = "Product Detail"
         static let mostViewdProduct = "Most Viewd Product"
         static let mostOrderedProduct = "Most Ordered Product"
         static let mostSharedProduct = "Most Shared Product"
+    }
+    
+    struct Message {
+        
+        static let noDataFound = "No data found"
+        static let noProductFound = "No product found"
+        static let selectOneTitle = "Select One"
+        static let selectOneMsg = "Please select any one option to view products"
+        static let allProdcutsAToZ = "All Products (A → Z)"
+        static let cancel = "Cancel"
+
     }
 
 }

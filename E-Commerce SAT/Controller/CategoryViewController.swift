@@ -12,7 +12,7 @@ import MBProgressHUD
 class CategoryViewController: UIViewController {
 
     // MARK: - Properties
-    fileprivate let reuseIdentifier = "CategoryCollectionViewCell"
+    fileprivate let reuseIdentifier = CategoryCollectionViewCell.className
     fileprivate let sectionInsets = UIEdgeInsets(top: 20.0, left: 12.0, bottom: 10.0, right: 12.0)
     fileprivate let maxHeightForCell:CGFloat = 100
 
@@ -47,7 +47,7 @@ class CategoryViewController: UIViewController {
             
 
         if self.categoryEntityList.count == 0 {
-
+            
             let predicate = NSPredicate(format: "self.parentCategoryId == -1")
             let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
             if let fetchData = try? CategoryEntity.fetch(predicate: predicate, sortDescriptor: sortDescriptor) as? [CategoryEntity], fetchData.count > 0 {
@@ -129,7 +129,7 @@ extension CategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if categoryEntityList.count == 0 {
-            collectionView.setEmptyMessage("No data found")
+            collectionView.setEmptyMessage(Constants.Message.noDataFound)
         } else {
             collectionView.restore()
         }

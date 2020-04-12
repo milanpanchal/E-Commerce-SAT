@@ -36,7 +36,7 @@ extension NSManagedObject {
         do {
             return try managedObjectContext.count(for: request)
         } catch {
-            print(error.localizedDescription)
+            debugPrint(error.localizedDescription)
             return 0
         }
     }
@@ -51,13 +51,13 @@ extension NSManagedObject {
             try managedObjectContext.execute(batchDeleteRequest)
             
         } catch let deleteAllError {
-            print("Delete All Error for \(entityName): \(deleteAllError)")
+            fatalError("Delete All Error for \(entityName): \(deleteAllError)")
         }
         
         do {
             try managedObjectContext.save()
         } catch let deleteError {
-            print("Failed deleting \(deleteError)")
+            fatalError("Failed deleting \(deleteError)")
         }
     }
 
@@ -67,10 +67,9 @@ extension NSManagedObject {
         do {
             return try fetch(predicate: nil, sortDescriptor: nil)
         } catch let fetchAllError {
-            print("Fetch All Error for \(entityName): \(fetchAllError)")
+            fatalError("Fetch All Error for \(entityName): \(fetchAllError)")
         }
         
-        return nil
     }
     
     /// Fetch all objects of the current entity based on predicate.
@@ -95,10 +94,9 @@ extension NSManagedObject {
         
                         
         } catch let fetchError {
-            print("Fetch Error for \(entityName): \(fetchError)")
+            fatalError("Fetch Error for \(entityName): \(fetchError)")
         }
         
-        return nil
     }
     
     class func saveAllInventory(productInfo: ProductInfo) {
@@ -130,7 +128,7 @@ extension NSManagedObject {
         do {
            try managedObjectContext.save()
           } catch let saveError {
-           print("Failed saving \(saveError)")
+           fatalError("Failed saving \(saveError)")
         }
 
     }

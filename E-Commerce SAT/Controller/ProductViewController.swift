@@ -11,7 +11,8 @@ import UIKit
 class ProductViewController: UIViewController {
     
     // MARK: - Properties
-    fileprivate let reuseIdentifier = "ProductCollectionViewCell"
+    fileprivate let reuseIdentifier = ProductCollectionViewCell.className
+    
     fileprivate let sectionInsets = UIEdgeInsets(top: 20.0, left: 12.0, bottom: 20.0, right: 12.0)
     fileprivate let maxHeightForCell:CGFloat = 220
     fileprivate let itemsPerRow: CGFloat = 2.0
@@ -96,8 +97,8 @@ class ProductViewController: UIViewController {
     
     @IBAction func didTapOnSwiftProductView(_ sender: UIBarButtonItem) {
     
-        let alert = UIAlertController(title: "Select One",
-                                      message: "Please select any one option to view products",
+        let alert = UIAlertController(title: Constants.Message.selectOneTitle,
+                                      message: Constants.Message.selectOneMsg,
                                       preferredStyle: .actionSheet)
 
         
@@ -113,12 +114,12 @@ class ProductViewController: UIViewController {
             self.setupProductView(productDisplayView: .mostSharedProducts)
         })
         
-        alert.addAction(UIAlertAction(title: "All Products (A → Z)", style: .default) { (action) in
+        alert.addAction(UIAlertAction(title: Constants.Message.allProdcutsAToZ, style: .default) { (action) in
             self.setupProductView(productDisplayView: .allProducts)
         })
 
 
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: Constants.Message.cancel, style: .cancel, handler: nil))
 
         self.present(alert, animated: true)
 
@@ -132,7 +133,7 @@ extension ProductViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if productEntityList.count == 0 {
-            collectionView.setEmptyMessage("No product found")
+            collectionView.setEmptyMessage(Constants.Message.noProductFound)
         } else {
             collectionView.restore()
         }
@@ -147,6 +148,15 @@ extension ProductViewController: UICollectionViewDataSource {
                                                 displayMode: productDisplayView)
         cell.setProduct(productViewModel: productViewModel)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let productDetailVC = storyboard?.instantiateViewController(identifier: ProductDetailViewController.className) as? ProductDetailViewController else {
+            return
+        }
+        
+        productDetailVC.productEntity = productEntityList[indexPath.item]
+        self.navigationController?.pushViewController(productDetailVC, animated: true)
     }
     
 }
