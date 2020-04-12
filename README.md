@@ -33,8 +33,14 @@ Implemeneted **Heady - Skill Assessment Test (SAT) for E-Commerce** in Swift lan
   - Most Ordered Prodcts
   - Most Shared Prodcuts
   - All Products
+- Product Detail Page (To show product varients)
 
 
+
+## Preview
+
+<img src="Screenshots/Heady.001.jpeg"/>
+<img src="Screenshots/Heady.002.jpeg"/>
 
 ## Third Party Library
 

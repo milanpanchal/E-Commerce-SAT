@@ -109,11 +109,8 @@ class ProductViewModelTest: XCTestCase {
         
         
         waitForExpectations(timeout: 10.0) { (error) in
-            print(error?.localizedDescription ?? "error")
+            debugPrint(error?.localizedDescription ?? "error")
         }
     }
-
-
-
 
 }
