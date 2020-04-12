@@ -48,9 +48,7 @@ class CategoryViewController: UIViewController {
 
         if self.categoryEntityList.count == 0 {
             
-            let predicate = NSPredicate(format: "self.parentCategoryId == -1")
-            let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-            if let fetchData = try? CategoryEntity.fetch(predicate: predicate, sortDescriptor: sortDescriptor) as? [CategoryEntity], fetchData.count > 0 {
+            if let fetchData = fetchCategoryDataFromDatabase(), fetchData.count > 0 {
                 self.categoryEntityList = fetchData
             } else {
                 categoryCollectionView.isHidden = true
@@ -84,7 +82,7 @@ class CategoryViewController: UIViewController {
                 try? CategoryEntity.deleteAll()
                 CategoryEntity.saveAllInventory(productInfo: productInfo)
             
-                if let fetchData = try? CategoryEntity.fetchAll() as? [CategoryEntity] {
+                if let fetchData = self?.fetchCategoryDataFromDatabase() {
                     self?.categoryEntityList = fetchData
                 }
                 
@@ -120,7 +118,15 @@ class CategoryViewController: UIViewController {
             listGridBtn.image = UIImage(systemName: "list.bullet")
         }
         
-    }    
+    }
+    
+    fileprivate func fetchCategoryDataFromDatabase() -> [CategoryEntity]? {
+        
+        let predicate = NSPredicate(format: "self.parentCategoryId == -1")
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        let fetchData = try? CategoryEntity.fetch(predicate: predicate, sortDescriptor: sortDescriptor) as? [CategoryEntity]
+        return fetchData
+    }
 }
 
 
